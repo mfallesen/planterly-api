@@ -15,6 +15,7 @@
     "dotenv": "^16.0.0",
     "express": "^4.17.1",
     "mongoose": "^5.9.9",
+    "passport-jwt": "^4.0.0",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
