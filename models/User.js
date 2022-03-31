@@ -5,11 +5,11 @@ const ROUNDS = process.env.SALT_ROUNDS;
 
 const userSchema = new Schema(
   {
-    // _id: {
-    //   type: String,
-    //   default: uuidv4.v4,
-    //   unique: true,
-    // },
+    _id: {
+      type: String,
+      unique: true,
+      default: uuidv4,
+    },
     username: {
       type: String,
       required: true,
