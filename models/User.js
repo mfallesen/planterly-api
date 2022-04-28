@@ -33,9 +33,13 @@ const userSchema = new Schema(
       trim: true,
     },
     plants: {
-      type: String,
-      required: false,
+      type: Schema.Types.ObjectId,
+      ref: "PlantDiary",
     },
+    // plants: {
+    //   type: String,
+    //   required: false,
+    // },
     password: {
       type: String,
       required: true,
