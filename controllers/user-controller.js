@@ -1,4 +1,4 @@
-const { User, Thought } = require("../models");
+const { User } = require("../models");
 
 const userController = {
   // create a new user
@@ -19,11 +19,12 @@ const userController = {
       if (!req.body.password) {
         res.status(401).send("Please Include a Password");
       }
-
+      // console.log(userInfo);
       userInfo.passwordVerify(req.body.password, function (err, isMatch) {
         if (err) throw err;
         if (isMatch) {
-          res.cookie(req.body.userFirstName, req.body.username);
+          // console.log(req.body);
+          res.cookie(userInfo.username, userInfo._id);
           res.status(200).send("User Found and logged in!");
         }
       });
