@@ -1,20 +1,21 @@
 const { Schema, model, SchemaType } = require("mongoose");
-const { v4: uuidv4 } = require("uuid");
 
 const diarySchema = new Schema({
-  _id: {
+  diaryName: {
     type: String,
-    unique: true,
-    default: uuidv4,
+    required: true,
+    default: "My Fist Plant Diary",
   },
   diaryOwner: {
     type: Schema.Types.ObjectId,
     ref: "User",
+    required: true,
   },
   plantEntires: [
     {
       type: Schema.Types.ObjectId,
       ref: "Plant",
+      required: false,
     },
   ],
   //   Needs to relate to the user it belongs to and contain both the generic plant inof as well as the user specific.

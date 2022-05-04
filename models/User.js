@@ -1,15 +1,10 @@
 const { Schema, model } = require("mongoose");
-const { v4: uuidv4 } = require("uuid");
+
 const bcrypt = require("bcrypt");
 const ROUNDS = process.env.SALT_ROUNDS;
 
 const userSchema = new Schema(
   {
-    _id: {
-      type: String,
-      unique: true,
-      default: uuidv4,
-    },
     username: {
       type: String,
       required: true,
@@ -32,13 +27,9 @@ const userSchema = new Schema(
       required: false,
       trim: true,
     },
-    plants: {
-      type: Schema.Types.ObjectId,
-      ref: "PlantDiary",
-    },
     // plants: {
-    //   type: String,
-    //   required: false,
+    //   type: Schema.Types.ObjectId,
+    //   ref: "PlantDiary",
     // },
     password: {
       type: String,
